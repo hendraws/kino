@@ -8,21 +8,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/jquery-ui.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
-
-	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
-
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-	<link rel="stylesheet" href="css/aos.css">
-
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
+	<link rel="stylesheet" href="{{ asset("css/jquery-ui.css") }}">
+	<link rel="stylesheet" href="{{ asset("css/owl.carousel.min.css") }}">
+	<link rel="stylesheet" href="{{ asset("css/owl.theme.default.min.css") }}">
+	<link rel="stylesheet" href="{{ asset("css/owl.theme.default.min.css") }}">
+	<link rel="stylesheet" href="{{ asset("css/jquery.fancybox.min.css") }}">
+	<link rel="stylesheet" href="{{ asset("css/bootstrap-datepicker.css") }}">
+	<link rel="stylesheet" href="{{ asset("fonts/flaticon/font/flaticon.css") }}">
+	<link rel="stylesheet" href="{{ asset("css/aos.css") }}">
+	<link rel="stylesheet" href="{{ asset("css/style.css") }}">
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -53,41 +48,18 @@
 			<div class="container">
 				<div class="row align-items-center">
 
-					<div class="col-6 col-xl-6">
-						<h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Rumah Belajar Kino </a></h1>
+					<div class="col-6 col-xl-5">
+						<h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Kino </a></h1>
 					</div>
 
-					<div class="col-12 col-md-6 d-none d-xl-block">
+					<div class="col-12 col-md-7 d-none d-xl-block">
 						<nav class="site-navigation position-relative text-right" role="navigation">
-
 							<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-								<li><a href="#home-section" class="nav-link">Home</a></li>
-								<li class="has-children">
-									<a href="#about-section" class="nav-link">About Us</a>
-									<ul class="dropdown">
-										<li><a href="#team-section" class="nav-link">Team</a></li>
-										<li><a href="#pricing-section" class="nav-link">Pricing</a></li>
-										<li><a href="#faq-section" class="nav-link">FAQ</a></li>
-										<li><a href="#gallery-section" class="nav-link">Gallery</a></li>
-										<li><a href="#services-section" class="nav-link">Services</a></li>
-										<li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
-										<li class="has-children">
-											<a href="#">More Links</a>
-											<ul class="dropdown">
-												<li><a href="#">Menu One</a></li>
-												<li><a href="#">Menu Two</a></li>
-												<li><a href="#">Menu Three</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
+								<li><a href="#beranda" class="nav-link">Beranda</a></li>
+								<li><a href="#tentang-kami" class="nav-link">Tentang Kami</a></li>
+								<li><a href="#testimoni" class="nav-link">Testimoni</a></li>
+								<li><a href="#hubungi-kami" class="nav-link">Hubungi Kami</a></li>
 
-
-								<li><a href="#blog-section" class="nav-link">Blog</a></li>
-								<li><a href="#contact-section" class="nav-link">Contact</a></li>
-								<li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-								<li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-								<li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
 							</ul>
 						</nav>
 					</div>
@@ -102,7 +74,7 @@
 
 
 
-		<div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" id="home-section">
+		<div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" id="beranda">
 
 			<div class="container">
 				<div class="row align-items-center justify-content-center">
@@ -125,8 +97,7 @@
 			</a>
 		</div>  
 
-
-		<div class="site-section cta-big-image" id="about-section">
+		<div class="site-section cta-big-image" id="tentang-kami">
 			<div class="container">
 				<div class="row mb-5 justify-content-center">
 					<div class="col-md-8 text-center">
@@ -152,50 +123,81 @@
 				</div>    
 
 			</div>  
-		</div>
-
+		</div>	
 		<section class="site-section">
 			<div class="container">
-
-				<div class="row mb-5 justify-content-center">
-					<div class="col-md-7 text-center">
-						<h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="">Testimoni</h2>
+				<div class="row align-items-lg-center" >
+					<div class="col-md-12">
+						<canvas id="myChart"></canvas>
 					</div>
 				</div>
-
 				<div class="row align-items-lg-center" >
-					<div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
+					<div class="col-md-12">
+						<canvas id="myChart2"></canvas>
+					</div>
+				</div>
+			</div>
+		</section>
 
-						<div class="owl-carousel slide-one-item-alt">
-							<img src="images/img_1.jpg" alt="Image" class="img-fluid">
-							<img src="images/img_2.jpg" alt="Image" class="img-fluid">
-							<img src="images/img_3.jpg" alt="Image" class="img-fluid">
+		<section class="site-section testimonial-wrap" id="testimoni" data-aos="fade">
+			<div class="container">
+				<div class="row mb-5">
+					<div class="col-12 text-center">
+						<h2 class="section-title mb-3">Testimoni</h2>
+					</div>
+				</div>
+			</div>
+			<div class="slide-one-item home-slider owl-carousel">
+				<div>
+					<div class="testimonial">
+						<div class="row">
+							<div class="col-md-4">
+								<figure class="mb-4 align-items-center justify-content-center">
+									<img src="images/person_3.jpg" alt="Image" class="img-fluid mb-3">	
+									<h5>Robet</h5>
+								</figure>
+							</div>
+							<div class="col-md-8">  
+								<blockquote class="mb-5">
+									<p>&ldquo;Saya Bersyukur Sudah Bergabung di Rumah Belajar Kino, Akhirnya saya bisa masuk akpol dengan lancar, terimakasih Kino!&rdquo;</p>
+								</blockquote>
+							</div>
 						</div>
-		<!-- 				<div class="custom-direction">
-							<a href="#" class="custom-prev"><span><span class="icon-keyboard_backspace"></span></span></a><a href="#" class="custom-next"><span><span class="icon-keyboard_backspace"></span></span></a>
-						</div> -->
 
 					</div>
-					<div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
-
-						<div class="owl-carousel slide-one-item-alt-text">
-							<div>
+				</div>
+				<div>
+					<div class="testimonial">
+						<div class="row">
+							<div class="col-md-4">
+								<figure class="mb-4 align-items-center justify-content-center">
+									<img src="images/person_2.jpg" alt="Image" class="img-fluid mb-3">	
+									<h5>Lala</h5>
+								</figure>
+							</div>
+							<div class="col-md-8">  
 								<blockquote class="mb-5">
-									<h4>&ldquo;Terimakasih RUmah belajar kino, saya sekarang sudah mulai masuk di sekolah kedinasan.&rdquo;</h4>
+									<p>&ldquo;Saya sudah ikut test cpns 4x dan gagal , tetapi saya tidak menyerah dengan kegagalan itu, saya belajar giat dan ikut les Rumah Privat Kino untuk melatih soal-soal cpns dan tips serta trik untuk mengerjakan soalnya, Dan tahun ini saya senang sekali karna sudah diterima di Kemenkumham, Arigatooo kino !&rdquo;</p>
 								</blockquote>
 							</div>
-							<div>
+						</div>
+
+					</div>
+				</div>
+				<div>
+					<div class="testimonial">
+						<div class="row">
+							<div class="col-md-3">
+								<figure class="mb-4 align-items-center justify-content-center">
+									<img src="images/person_1.jpg" alt="Image" class="img-fluid mb-3">	
+									<h5>Franki</h5>
+								</figure>
+							</div>
+							<div class="col-md-9">  
 								<blockquote class="mb-5">
-									<h4>&ldquo;Asik.&rdquo;</h4>
+									<p>&ldquo;Terimakasih Tim Bimbel Kino, Berkat Doa dan motivasi serta pelatihan soal-soal dari tim pengajar kino saya lolos di CPNS Kemendikbud, Mau LOLOS CPNS ? Gabung Di kino Yok ! &rdquo;</p>
 								</blockquote>
 							</div>
-							<div>
-								<blockquote class="mb-5">
-									<h4>&ldquo;Terimakasih Rumah belajar kino, saya sekarang sudah mulai masuk di sekolah kedinasan.&rdquo;</h4>
-								</blockquote>
-							</div>
-
-
 						</div>
 
 					</div>
@@ -263,9 +265,9 @@
 
 
 
-		
 
-		<section class="site-section bg-light" id="contact-section" data-aos="fade">
+
+		<section class="site-section bg-light" id="hubungi-kami" data-aos="fade">
 			<div class="container">
 				<div class="row mb-5">
 					<div class="col-12 text-center">
@@ -358,21 +360,106 @@
 
 	</div> <!-- .site-wrap -->
 
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/jquery.fancybox.min.js"></script>
-	<script src="js/jquery.sticky.js"></script>
-	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="{{ asset("js/jquery-3.3.1.min.js") }}"></script>
+	<script src="{{ asset("js/jquery-ui.js") }}"></script>
+	<script src="{{ asset("js/popper.min.js") }}"></script>
+	<script src="{{ asset("js/bootstrap.min.js") }}"></script>
+	<script src="{{ asset("js/owl.carousel.min.js") }}"></script>
+	<script src="{{ asset("js/jquery.countdown.min.js") }}"></script>
+	<script src="{{ asset("js/jquery.easing.1.3.js") }}"></script>
+	<script src="{{ asset("js/aos.js") }}"></script>
+	<script src="{{ asset("js/jquery.fancybox.min.js") }}"></script>
+	<script src="{{ asset("js/jquery.sticky.js") }}"></script>
+	<script src="{{ asset("js/isotope.pkgd.min.js") }}"></script>
+	<script src="{{ asset("js/main.js") }}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+	<script src="js/datachart.js"></script>
+	<script type="text/javascript">
+		let myChart = document.getElementById('myChart').getContext('2d');
+		let myChart2 = document.getElementById('myChart2').getContext('2d');
+		Chart.defaults.global.defaultFontFamily = 'lato';
+		Chart.defaults.global.defaultFontSize = 18;
+		Chart.defaults.global.defaultFontColor = '#000';
+		let dataSiswa = <?=$data; ?>;
+		let dataSiswaLulus = <?=$data2; ?>;
+		let tahun = <?= $tahun; ?>;
+		let data = {
+			labels:tahun,
+			datasets:dataSiswa
+		}
 
+		let data2 = {
+			labels:tahun,
+			datasets:dataSiswaLulus
+		}
 
-	<script src="js/main.js"></script>
+		let barChart = new Chart(myChart, {
+			type: 'bar',
+			data: data,
+			options:{
+				responsive: true,
+				title:{
+					display : 'true',
+					text : 'Grafik Siswa Kino',
+					fontSize: 25,
+				},
+				legend:{
+					position: 'top'
+				},
+				layouts:{
+					padding:{
+						left:50,
+						Right:0,
+						Buttom:0,
+					}
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true,
+							suggestedMax: 80,
+						}
+					}]
+				},
+				tooltips: {
+					mode: 'index'
+				}
+			}
+		});
 
-
+		let barChart2 = new Chart(myChart2, {
+			type: 'bar',
+			data: data2,
+			options:{
+				responsive: true,
+				title:{
+					display : 'true',
+					text : 'Grafik Siswa Kino Yang Lulus Test',
+					fontSize: 25,
+				},
+				legend:{
+					position: 'top'
+				},
+				layouts:{
+					padding:{
+						left:50,
+						Right:0,
+						Buttom:0,
+					}
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true,
+							suggestedMax: 80,
+						}
+					}]
+				},
+				tooltips: {
+					mode: 'index'
+				}
+			}
+		});
+	</script>
 </body>
 </html>
