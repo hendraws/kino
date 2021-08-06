@@ -83,7 +83,7 @@
 					<div class="col-md-10 mt-lg-5">
 						<h2 class="text-white">Rumah Belajar Kino</h2>
 						<h4 class="text-white my-3">Bimbingan belajar khusus persiapan tes POLRI, TNI, BUMN, CPNS, Sekolah Angkatan Dinas & PPPK yang pertama, terbaik, tersiap & terlengkap telah hadir di Palembang.</h4>
-						<button class="btn btn-primary mt-3">Ayo Bergabung</button>	
+						<a href="#hubungi-kami" class="btn btn-primary mt-3">Ayo Bergabung</a>	
 
 					</div>
 
