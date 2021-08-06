@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Grafik;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\DataTables;
 
 class GrafikController extends Controller
@@ -36,8 +37,7 @@ class GrafikController extends Controller
     			return $siswa_lulus;
     		})     
     		->addColumn('action', function ($row) {
-    			$action =  '<a class="btn btn-sm btn-warning py-0 edit" style="font-size: 0.8em;" data-id="'.$row->id.'" >Edit</a>';
-    			$action = $action. '<a class="btn btn-sm btn-danger text-white py-0 mx-2 hapus" style="font-size: 0.8em;" data-id="'.$row->id.'" >Hapus</a>';
+    			$action =  '<a class="btn btn-sm btn-warning" href="'.action('GrafikController@edit', $row->id).'" >Edit</a>';
     			return $action;
     		})
     		->rawColumns(['action'])
@@ -54,13 +54,28 @@ class GrafikController extends Controller
      */
     public function create()
     {
+    	$cek = Grafik::where('tahun', date('Y'))->get();
+    	if(!empty($cek)){
+    		Alert::warning('Peringatan!', 'Data Pertahun Sudah Lengkap, silahkan edit data yang sudah ada');
+    		return back();
+    	} 
+
     	$tahun = 2005;
     	$data = [];
     	while ( $tahun <= date('Y')) {
     		$data[] = $tahun++;
     	}
     	$kategori = ['polri', 'tni', 'bumn', 'cpns','sekolah-dinas'];
-    
+
+    	foreach ($data as $key => $tahun) {
+    		foreach ($kategori as $kat) {
+    			$input['tahun'] = $tahun;
+    			$input['kategori'] = $kat;
+    			$input['siswa'] = rand(40,60);
+    			$input['siswa_lulus'] = rand(30,50);
+    			Grafik::create($input);
+    		}
+    	}
         return view('grafik.create', compact('data', 'kategori'));
     }
 
@@ -100,9 +115,10 @@ class GrafikController extends Controller
      * @param  \App\Grafik  $grafik
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grafik $grafik)
+    public function edit($id)
     {
-        //
+        $data = Grafik::find($id);
+        return view('grafik.edit', compact('data'));
     }
 
     /**
@@ -112,9 +128,19 @@ class GrafikController extends Controller
      * @param  \App\Grafik  $grafik
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grafik $grafik)
+    public function update(Request $request, $id	)
     {
-        //
+    	if($request->siswa_lulus > $request->siswa){
+    		Alert::warning('Peringatan!', 'Siswa yang Lulus tidak boleh lebih besar dari jumlah siswa');
+    		return back();
+    	}
+
+        Grafik::whereId($id)->update([
+        	'siswa' => $request->siswa,
+        	'siswa_lulus' => $request->siswa_lulus,
+        ]);
+
+        return redirect()->action('GrafikController@index');
     }
 
     /**

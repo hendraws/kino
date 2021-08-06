@@ -17,7 +17,7 @@
 			scrollX: "100%",
 			scrollCollapse:false,
 			columnDefs: [
-			{targets: [0,2,3,], className: "text-center",},
+			{targets: [0,1,5], className: "text-center",},
 			{targets: 0, width: "15px"},
 			],
 			columns: [
@@ -38,112 +38,12 @@
 			}
 		});
 
-		$('body').on('click', '#saveBtn', function (e) {
-			e.preventDefault();
-			var id = $("#id").val();
-			var nip = $("#nip").val();
-			var nama = $("#nama").val();
-			var alamat = $("#alamat").val();
-			var no_hp = $("#no_hp").val();
-			var email = $("#email").val();
-
-			$.ajax({
-				url: "{{ action('GrafikController@store') }}",
-				type: "POST",
-				data: {
-					id: id,
-					nip: nip,
-					nama: nama,
-					alamat: alamat,
-					no_hp: no_hp,
-					email: email,
-				},
-				dataType: 'json',
-				success: function (data) {
-
-					$('#exampleModal').modal('hide');
-					$('#karyawanform').trigger('reset');
-					Swal.fire({
-						position: 'top-end',
-						icon: 'success',
-						title: 'Success',
-						showConfirmButton: false,
-						timer: 1500
-					})
-					reloadData();
-				},
-				error: function (data) {
-					Swal.fire({
-						position: 'top-end',
-						icon: 'error',
-						title: 'Error',
-						showConfirmButton: false,
-						timer: 1500
-					})
-					console.log('Error......');
-				}
-			});
-		});
-
-		$('body').on('click', '.edit', function (e) {
-			$('#karyawanform').trigger('reset');
-			var id = $(this).data('id');
-			$.get('/karyawan/'+id+'/edit', function (data) {
-				console.log(data);
-				$('#userCrudModal').html("Edit Karyawan");
-				$('#exampleModal').modal('show');
-				$('#id').val(data.data.id);
-				$('#nip').val(data.data.nip);
-				$('#nama').val(data.data.nama);
-				$('#alamat').val(data.data.alamat);
-				$('#no_hp').val(data.data.no_telp);
-				$('#email').val(data.data.email);
-
-			})
-		});
 
 		function reloadData() {
 			$('.table').DataTable().ajax.reload();
 		}
 
-		$('body').on('click', '.hapus', function (event) {
-			event.preventDefault();
-			var id = $(this).attr('data-id');
-		    var url = '{{ action("GrafikController@destroy",":id") }}';
-		    url = url.replace(':id',id);
-			Swal.fire({
-				title: 'Are you sure?',
-
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Yes, delete it!'
-			}).then((result) => {
-				if (result.isConfirmed) {
-
-					$.ajax(
-					{
-						url: url,
-						type: 'DELETE',
-						data: {
-							id: $(this).attr('data-id')
-						},
-						success: function (response){
-							Swal.fire(
-								'Remind!',
-								'deleted successfully!',
-								'success'
-								);
-						}
-					});
-					reloadData();
-				}
-			})
-
-
-			return false;
-		});
+		
 
 	});
 

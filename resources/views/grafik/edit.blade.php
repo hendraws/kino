@@ -18,42 +18,38 @@
 	<div class="card-header">
 		<div class="row">
 			<div class="col-auto">
-				Tambah Data Siswa Kino
+				Edit Data Pencapaian Siswa Kino tahun {{ $data->tahun }}
 			</div>
 		</div>
 	</div>
 	<div class="card-body">
-		<form class="needs-validation" action="{{ action('GrafikController@store') }}" method="POST">
+		<form class="needs-validation" action="{{ action('GrafikController@update', $data->id) }}" method="POST">
 			@csrf
+			@method('put')
 			<div class="form-row mb-3">
 				<div class="col-md-12">
 					<label for="validationTooltip01">Tahun</label>
-					<select class="form-control" id="exampleFormControlSelect1" name="tahun">
-						@foreach ($data as $val)
-							<option value="{{ $val }}" {{ $val == date('Y') ? 'selected' : '' }}>{{ $val }}</option>
-						@endforeach
-					</select>
+						<input type="text" class="form-control" required value="{{ $data->tahun }}" readonly="readonly">
 				</div>
 			</div>
 			<div class="form-row">
-				@foreach ($kategori as $value)
 
 				<div class="col-md-6 mb-3">
 					<label for="validationTooltip03">Kategori</label>
-					<input type="text" class="form-control" required value="{{ $value }}" readonly="readonly">
+					<input type="text" class="form-control" required value="{{ $data->kategori }}" readonly="readonly">
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="validationTooltip04">Jumlah Siswa</label>
-					<input type="number" class="form-control" required name="kategori[{{ $value }}][siswa]">
+					<input type="number" class="form-control" required name="siswa" value="{{ $data->siswa }}">
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="validationTooltip05">Jumlah Siswa Lulus</label>
-					<input type="number" class="form-control" required name="kategori[{{ $value }}][siswa_lulus]">
+					<input type="number" class="form-control" required name="siswa_lulus" value="{{ $data->siswa_lulus }}">
 				</div>
-				@endforeach
 			</div>
 
-			<button class="btn btn-primary" type="submit">Submit form</button>
+			<button class="btn btn-primary" type="submit">Simpan</button>
+			<a class="btn btn-warning" href="{{ action('GrafikController@index') }}">Kembali</a>
 		</form>
 
 	</div>

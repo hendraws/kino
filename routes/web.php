@@ -121,7 +121,7 @@ Route::get('/chart', function () {
 	return view('grafik.chart')->with('data', json_encode($dataSiswa))->with('tahun', json_encode($tahun));
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
